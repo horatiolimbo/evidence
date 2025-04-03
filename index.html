@@ -1,312 +1,361 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<title>Overview Table of Video Incidents (Severity Ratings):</title>
-	</head>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Keep external link in case you use it -->
+    <title>Overview Table of Video Incidents (Severity Ratings)</title>
+    <style>
+        /* --- Basic Reset & Font --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light grey background */
+            color: #333;
+        }
+
+        /* --- Centered Container --- */
+        .container {
+            max-width: 1100px; /* Wider container for better table display */
+            margin: 30px auto;
+            padding: 25px 35px;
+            background-color: #ffffff; /* White content background */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* --- Headings --- */
+        h2, h3 {
+            color: #2a2a2a;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        /* --- Context Section --- */
+        .context-section {
+            background-color: #fdfdfd; /* Slightly off-white background */
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center; /* Center image */
+        }
+        .context-section img {
+            max-width: 65%; /* Adjust as needed */
+            height: auto;
+            display: block;
+            margin: 0 auto 15px auto; /* Center block image */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .context-section p {
+            text-align: left; /* Keep text left-aligned */
+            max-width: 85%; /* Constrain text width */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            color: #444;
+        }
+
+        /* --- Table Styling --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 0.9em; /* Slightly smaller table font */
+        }
+        th, td {
+            border: 1px solid #d1d1d1; /* Slightly softer border */
+            padding: 10px 8px; /* More padding */
+            text-align: center;
+            vertical-align: top; /* Align content to top */
+        }
+        thead th {
+            background-color: #e9ecef; /* Light header background */
+            font-weight: 600; /* Semibold header */
+            color: #212529;
+            font-size: 0.95em;
+        }
+        /* Keep specific left alignment */
+        th[style*="text-align: left"],
+        td[style*="text-align: left"] {
+            text-align: left;
+        }
+        /* Zebra striping for readability */
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tbody tr:hover {
+             background-color: #eef; /* Highlight on hover */
+        }
+        td p {
+             margin: 0 0 5px 0; /* Reduce paragraph margin inside cells */
+             line-height: 1.4;
+        }
+        td p em {
+            font-size: 0.9em;
+            color: #555;
+        }
+        /* Star styling */
+        td {
+            /* Ensure stars don't wrap awkwardly */
+            white-space: nowrap;
+        }
+
+        /* --- Definitions Styling --- */
+        ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        /* Definition Scale Table */
+        h3 + table th, h3 + table td {
+             font-size: 0.9em;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 15px;
+            }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+            table, th, td {
+                font-size: 0.85em; /* Smaller font on mobile */
+            }
+            th, td { padding: 6px 4px; }
+            .context-section img { max-width: 90%; }
+            .context-section p { max-width: 100%; }
+        }
+        @media (max-width: 480px) {
+             th, td {
+                 /* Allow text wrapping on very small screens if needed */
+                 white-space: normal;
+             }
+        }
+
+    </style>
+</head>
 <body>
-<h2>Overview Table of Video Incidents (Severity Ratings):</h2>
 
-<table>
-	<thead>
-		<tr>
-			<th style="text-align: left;">
-				<strong>VIDEO TITLE</strong>
-			</th>
-			<th>
-				Physical Aggression/ Threat
-			</th>
-			<th>
-				Criminal Damage
-			</th>
-			<th>
-				Verbal Abuse Intensity
-			</th>
-			<th>
-				Coercive Control Tactics
-			</th>
-			<th>
-				Impact on Vulnerable Adult (Maureen)
-			</th>
-			<th>
-				Evidentiary Clarity
-			</th>
-			<th>
-				Brief Comment
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td style="text-align: left;">
-				<p><strong>‘Violent Morning’</strong> | Domestic Abuse Evidence</p>
+<div class="container">
 
-				<p><em>11 January 2025</em></p>
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				🔴🔴☆☆☆
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				Explicit threats (&quot;knock head off&quot;), attempted forced entry, cutting power/immediate fear. Maureen distressed and moved against will. Clear risk evident.
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: left;">
-				<p><strong>Criminal Damage</strong> | Further Evidence of Systematic Property Destruction</p>
+    <h2>Overview Table of Video Incidents (Severity Ratings)</h2>
 
-				<p><em>6 March 2025</em></p>
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				🔴🔴🔴☆☆
-			</td>
-			<td>
-				🔴☆☆☆☆
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				Documented serious criminal damage (property destruction). High aggression; substantial risk of escalation. Directly observable property damage.
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: left;">
-				<p><strong>’No Remorse’</strong> | Father Resumes Threats &amp; Abuse Day After Violent Room Destruction</p>
+    <!-- Context Section Added Here -->
+    <h3>Contextual Background: History of Property Damage & Loss</h3>
+    <div class="context-section">
+        <img src="https://raw.githubusercontent.com/horatiolimbo/evidence/666000bf0b9fc98e210d3be579c1da9639b2b61a/20231224%20Broken%20TV.jpg" alt="Severely cracked screen of a Samsung Frame TV displaying colourful pop art">
+        <p>
+            This image shows a high-value Samsung Frame TV (only 6 months old) severely damaged due to mishandling during a move from Harry's former flat. The move was managed solely by his father, Christopher, who failed to arrange insurance for the process. The move also resulted in the deliberate discarding and damage to much of Harry's belongings including furniture and lighting, extensive collection of carefully cultivated plants and expensive pots, framed artwork, kitchen appliances etc.
+        </p>
+        <p>
+            Compounding this, Christopher, having promised safekeeping, subsequently made unilateral decisions resulting in the deliberate discarding and destruction of the vast majority of Harry's other possessions stored at the family home. This included irreplaceable items representing Harry's entire life history up to age 21: childhood diaries, degree and professional qualification certificates, extensive digital archives on hard drives, thousands of photographs, cherished mementos from loved ones now deceased, personal letters etc.
+        </p>
+         <p>
+            This history is presented as crucial background. It illustrates not only significant financial negligence and property destruction under Christopher's management but also a devastating pattern of deliberate deprivation of personal history and identity. Given the subsequent threats and focus directed towards TV screens and other electronics documented in the video evidence below (e.g., 6th & 7th March), the specific damage to this TV may indicate a relevant pattern or fixation, adding context to the ongoing behaviours.
+        </p>
+    </div>
+    <!-- End of Context Section -->
 
-				<p><em>7 March 2025</em></p>
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				🔴☆☆☆☆
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				🔴🔴☆☆☆
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				Explicit verbal threats (to destroy key items). Continues intimidation and emotional distress tactics. Clear recurring coercion/intimidation.
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: left;">
-				<p><strong>Verbal Abuse &amp; Eviction Threats</strong> Over Mopping Floor</p>
+    <!-- Main Video Table -->
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align: left;"><strong>VIDEO TITLE</strong></th>
+                <th>Physical Aggression/ Threat</th>
+                <th>Criminal Damage</th>
+                <th>Verbal Abuse Intensity</th>
+                <th>Coercive Control Tactics</th>
+                <th>Impact on Vulnerable Adult (Maureen)</th>
+                <th>Evidentiary Clarity</th>
+                <th>Brief Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: left;">
+                    <p><strong>‘Violent Morning’</strong> | Domestic Abuse Evidence</p>
+                    <p><em>11 January 2025</em></p>
+                </td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴☆☆☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>Explicit threats ("knock head off"), attempted forced entry, cutting power/immediate fear. Maureen distressed and moved against will. Clear risk evident.</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <p><strong>Criminal Damage</strong> | Further Evidence of Systematic Property Destruction</p>
+                    <p><em>6 March 2025</em></p>
+                </td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴🔴🔴☆☆</td>
+                <td>🔴☆☆☆☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>Documented serious criminal damage (property destruction). High aggression; substantial risk of escalation. Directly observable property damage.</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <p><strong>’No Remorse’</strong> | Father Resumes Threats & Abuse Day After Violent Room Destruction</p>
+                    <p><em>7 March 2025</em></p>
+                </td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴☆☆☆☆</td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴🔴☆☆☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>Explicit verbal threats (to destroy key items). Continues intimidation and emotional distress tactics. Clear recurring coercion/intimidation.</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <p><strong>Verbal Abuse & Eviction Threats</strong> Over Mopping Floor</p>
+                    <p><em>7 January 2025</em></p>
+                </td>
+                <td>🔴🔴☆☆☆</td>
+                <td>🔴☆☆☆☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴🔴☆☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>Sustained abusive verbal aggression ("Mopping Incident"). High coercive control/manipulation tactics. Emotional harm clear and prolonged.</td>
+            </tr>
+             <tr>
+                <td style="text-align: left;">
+                    <p><strong>Father Orders Son ('Harry') Out of House</strong> Amidst Intense Verbal Abuse</p>
+                    <p><em>8 January 2025</em></p>
+                </td>
+                <td>🔴🔴☆☆☆</td>
+                <td>🔴☆☆☆☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴🔴☆☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>Intense verbal abuse & eviction threats directed at son (Harry). Father asserts dominance, uses Maureen's presence/wellbeing as leverage. Coercive control evident. High emotional impact due to shouting near vulnerable adult. Clear evidence.</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <p><strong>OPG Evidence</strong> | Father Admits Plans to Override Mother’s Wishes Amidst Threats</p>
+                    <p><em>9 January 2025</em></p>
+                </td>
+                <td>🔴🔴🔴☆☆</td>
+                <td>🔴☆☆☆☆</td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>Clear safeguarding incident: Maureen's distress evident, forcibly isolated from supportive family member (Harry), clear coercion/control over her movements and autonomy.</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <p><strong>Direct Intimidation</strong> | Father Issues Explicit Eviction Demand via Surveillance Camera</p>
+                    <p><em>22 March 2025</em></p>
+                </td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴☆☆☆☆</td>
+                <td>🔴🔴🔴🔴☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>🔴☆☆☆☆</td>
+                <td>🔴🔴🔴🔴🔴</td>
+                <td>Deliberate invasion of Harry's private room. Explicit eviction threat delivered via surveillance camera, framing it as response to 'mistrust'. Clear intimidation, harassment, manipulation, and coercive control tactic. Explicit evidence.</td>
+            </tr>
+        </tbody>
+    </table>
 
-				<p><em>7 January 2025</em></p>
-			</td>
-			<td>
-				🔴🔴☆☆☆
-			</td>
-			<td>
-				🔴☆☆☆☆
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				🔴🔴🔴☆☆
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				Sustained abusive verbal aggression (&quot;Mopping Incident&quot;). High coercive control/manipulation tactics. Emotional harm clear and prolonged.
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: left;">
-				<p><strong>OPG Evidence</strong> | Father Admits Plans to Override Mother’s Wishes Amidst Threats</p>
+    <!-- Definitions Section -->
+    <h2>Definitions & Scale</h2>
 
-				<p><em>9 January 2025</em></p>
-			</td>
-			<td>
-				🔴🔴🔴☆☆
-			</td>
-			<td>
-				🔴☆☆☆☆
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				🔴🔴🔴🔴🔴
-			</td>
-			<td>
-				🔴🔴🔴🔴☆
-			</td>
-			<td>
-				Clear safeguarding incident: Maureen&#39;s distress evident, forcibly isolated from supportive family member (Harry), clear coercion/control over her movements and autonomy.
-			</td>
-		</tr>
-	</tbody>
-</table>
+    <h3>Severity Scale of Evidence (Negative Impact):</h3>
+    <p>Rating scale (🔴 negative severity):</p>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align: center;">Stars (🔴)</th>
+                <th style="text-align: left;">Meaning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td style="text-align: center;">🔴☆☆☆☆</td><td style="text-align: left;">Minor severity</td></tr>
+            <tr><td style="text-align: center;">🔴🔴☆☆☆</td><td style="text-align: left;">Moderate severity</td></tr>
+            <tr><td style="text-align: center;">🔴🔴🔴☆☆</td><td style="text-align: left;">High severity</td></tr>
+            <tr><td style="text-align: center;">🔴🔴🔴🔴☆</td><td style="text-align: left;">Severe</td></tr>
+            <tr><td style="text-align: center;">🔴🔴🔴🔴🔴</td><td style="text-align: left;">Extremely severe / immediate critical risk</td></tr>
+        </tbody>
+    </table>
 
-<h2>Definitions &amp; Scale</h2>
+    <h3>Rating Scale Definitions:</h3>
+    <p>Clarification for understanding the negative severity star ratings above.</p>
 
-<h3>Severity Scale of Evidence (Negative Impact):</h3>
+    <h4>Physical Aggression/ Threat:</h4>
+    <ul>
+        <li>🔴☆☆☆☆ No significant aggression.</li>
+        <li>🔴🔴☆☆☆ Intimidation or minor aggression evident.</li>
+        <li>🔴🔴🔴☆☆ Clear aggressive acts, implicit threat or blocking movement.</li>
+        <li>🔴🔴🔴🔴☆ Explicit physical threats, attempts of forced entry or aggressive conduct endangering person safety.</li>
+        <li>🔴🔴🔴🔴🔴 Direct physical violence or immediate severe threats evident.</li>
+    </ul>
 
-<p>Rating scale (🔴 negative severity):</p>
+    <h4>Criminal Damage:</h4>
+    <ul>
+        <li>🔴☆☆☆☆ No damage/minor mishandling.</li>
+        <li>🔴🔴☆☆☆ Careless handling or minor risk.</li>
+        <li>🔴🔴🔴☆☆ Intentional minor damage/damage risk.</li>
+        <li>🔴🔴🔴🔴☆ Deliberate property damage evident but limited.</li>
+        <li>🔴🔴🔴🔴🔴 Significant deliberate destruction clearly documented.</li>
+    </ul>
 
-<table>
-	<thead>
-		<tr>
-			<th style="text-align: center;">
-				Stars (🔴)
-			</th>
-			<th style="text-align: left;">
-				Meaning
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td style="text-align: center;">
-				🔴☆☆☆☆
-			</td>
-			<td style="text-align: left;">
-				Minor severity
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: center;">
-				🔴🔴☆☆☆
-			</td>
-			<td style="text-align: left;">
-				Moderate severity
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: center;">
-				🔴🔴🔴☆☆
-			</td>
-			<td style="text-align: left;">
-				High severity
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: center;">
-				🔴🔴🔴🔴☆
-			</td>
-			<td style="text-align: left;">
-				Severe
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: center;">
-				🔴🔴🔴🔴🔴
-			</td>
-			<td style="text-align: left;">
-				Extremely severe / immediate critical risk
-			</td>
-		</tr>
-	</tbody>
-</table>
+    <h4>Verbal Abuse Intensity:</h4>
+    <ul>
+        <li>🔴☆☆☆☆ Calm or slightly raised.</li>
+        <li>🔴🔴☆☆☆ Argumentative/persistent raised voices.</li>
+        <li>🔴🔴🔴☆☆ Shouting, personal criticism or insults.</li>
+        <li>🔴🔴🔴🔴☆ Sustained abusive language and insults.</li>
+        <li>🔴🔴🔴🔴🔴 Severe verbal aggression, intimidating threats, or high degradation/intensity.</li>
+    </ul>
 
-<h3>Rating Scale Definitions:</h3>
+    <h4>Coercive Control Tactics:</h4>
+    <ul>
+        <li>🔴☆☆☆☆ Little or none evident.</li>
+        <li>🔴🔴☆☆☆ Early/mild attempts to control.</li>
+        <li>🔴🔴🔴☆☆ Clear manipulation/control or isolation tactics.</li>
+        <li>🔴🔴🔴🔴☆ Explicit threats (financial, eviction, etc.), controlling actions clearly visible.</li>
+        <li>🔴🔴🔴🔴🔴 Multiple overt abuse tactics, severe restrictions of autonomy, high coercion explicitly demonstrated.</li>
+    </ul>
 
-<p>Clarification for understanding the negative severity star ratings above.</p>
+    <h4>Impact on Vulnerable Adult (Maureen):</h4>
+    <ul>
+        <li>🔴☆☆☆☆ Minimal or no impact observed.</li>
+        <li>🔴🔴☆☆☆ Distress likely or indirectly affected.</li>
+        <li>🔴🔴🔴☆☆ Clear distress and emotional risk.</li>
+        <li>🔴🔴🔴🔴☆ Explicit involvement against will, significant distress/care needs impacted.</li>
+        <li>🔴🔴🔴🔴🔴 Directly placed at immediate risk, forced action or clearly distressed / significantly endangered.</li>
+    </ul>
 
-<h4>Physical Aggression/ Threat:</h4>
+    <h4>Evidentiary Clarity (Video/audio quality):</h4>
+    <ul>
+        <li>🔴☆☆☆☆ Poor quality/evidence ambiguous.</li>
+        <li>🔴🔴☆☆☆ Usable but some aspects unclear.</li>
+        <li>🔴🔴🔴☆☆ Moderate clarity (clear but not complete).</li>
+        <li>🔴🔴🔴🔴☆ Mostly clear and understandable.</li>
+        <li>🔴🔴🔴🔴🔴 Very clear visual and audio evidence; fully documented without ambiguity.</li>
+    </ul>
 
-<ul>
-	<li>🔴☆☆☆☆ No significant aggression.</li>
-	<li>🔴🔴☆☆☆ Intimidation or minor aggression evident.</li>
-	<li>🔴🔴🔴☆☆ Clear aggressive acts, implicit threat or blocking movement.</li>
-	<li>🔴🔴🔴🔴☆ Explicit physical threats, attempts of forced entry or aggressive conduct endangering person safety.</li>
-	<li>🔴🔴🔴🔴🔴 Direct physical violence or immediate severe threats evident.</li>
-</ul>
-
-<h4>Criminal Damage:</h4>
-
-<ul>
-	<li>🔴☆☆☆☆ No damage/minor mishandling.</li>
-	<li>🔴🔴☆☆☆ Careless handling or minor risk.</li>
-	<li>🔴🔴🔴☆☆ Intentional minor damage/damage risk.</li>
-	<li>🔴🔴🔴🔴☆ Deliberate property damage evident but limited.</li>
-	<li>🔴🔴🔴🔴🔴 Significant deliberate destruction clearly documented.</li>
-</ul>
-
-<h4>Verbal Abuse Intensity:</h4>
-
-<ul>
-	<li>🔴☆☆☆☆ Calm or slightly raised.</li>
-	<li>🔴🔴☆☆☆ Argumentative/persistent raised voices.</li>
-	<li>🔴🔴🔴☆☆ Shouting, personal criticism or insults.</li>
-	<li>🔴🔴🔴🔴☆ Sustained abusive language and insults.</li>
-	<li>🔴🔴🔴🔴🔴 Severe verbal aggression, intimidating threats, or high degradation/intensity.</li>
-</ul>
-
-<h4>Coercive Control Tactics:</h4>
-
-<ul>
-	<li>🔴☆☆☆☆ Little or none evident.</li>
-	<li>🔴🔴☆☆☆ Early/mild attempts to control.</li>
-	<li>🔴🔴🔴☆☆ Clear manipulation/control or isolation tactics.</li>
-	<li>🔴🔴🔴🔴☆ Explicit threats (financial, eviction, etc.), controlling actions clearly visible.</li>
-	<li>🔴🔴🔴🔴🔴 Multiple overt abuse tactics, severe restrictions of autonomy, high coercion explicitly demonstrated.</li>
-</ul>
-
-<h4>Impact on Vulnerable Adult (Maureen):</h4>
-
-<ul>
-	<li>🔴☆☆☆☆ Minimal or no impact observed.</li>
-	<li>🔴🔴☆☆☆ Distress likely or indirectly affected.</li>
-	<li>🔴🔴🔴☆☆ Clear distress and emotional risk.</li>
-	<li>🔴🔴🔴🔴☆ Explicit involvement against will, significant distress/care needs impacted.</li>
-	<li>🔴🔴🔴🔴🔴 Directly placed at immediate risk, forced action or clearly distressed / significantly endangered.</li>
-</ul>
-
-<h4>Evidentiary Clarity (Video/audio quality):</h4>
-
-<ul>
-	<li>🔴☆☆☆☆ Poor quality/evidence ambiguous.</li>
-	<li>🔴🔴☆☆☆ Usable but some aspects unclear.</li>
-	<li>🔴🔴🔴☆☆ Moderate clarity (clear but not complete).</li>
-	<li>🔴🔴🔴🔴☆ Mostly clear and understandable.</li>
-	<li>🔴🔴🔴🔴🔴 Very clear visual and audio evidence; fully documented without ambiguity.</li>
-</ul>
+</div> <!-- End Container -->
 
 </body>
 </html>
-
